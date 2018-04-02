@@ -28,19 +28,19 @@
 	url = https://github.com/sei40kr/spacemacs-salesforce.git
 [submodule "tmux-simple"]
   branch = master
-	path = tmux/plugins/tmux-simple
+	path = config/tmux/plugins/tmux-simple
 	url = https://github.com/sei40kr/tmux-simple.git
 [submodule "tpm"]
-	path = tmux/plugins/tpm
+	path = config/tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm.git
 	branch = master
 [submodule "zplugin"]
-	path = zsh/.zplugin/bin
+	path = config/zsh/.zplugin/bin
 	url = https://github.com/zdharma/zplugin.git
 	branch = master
 [submodule "zsh-better-run-help"]
   branch = master
-	path = zsh/plugins/zsh-better-run-help
+	path = config/zsh/plugins/zsh-better-run-help
 	url = https://github.com/sei40kr/zsh-better-run-help.git
 [submodule "dotsync"]
 	path = dotsync
