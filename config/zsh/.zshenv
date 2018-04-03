@@ -1,6 +1,6 @@
 typeset -gU fpath infopath manpath path
-export TERM='screen-256color-italic'
-export ZSH_CACHE_DIR="${HOME}/.cache/zsh"
+#export TERM='screen-256color-italic'
+export ZSH_CACHE_DIR="${XDG_CACHE_HOME}/zsh"
 
 
 ## Browser
@@ -22,7 +22,7 @@ export GIT_EDITOR="$EDITOR"
 
 ## Language
 
-export LANGUAGE='en_US.UTF-8'
+export LANGUAGE='ja_JP.UTF-8'
 export LANG="$LANGUAGE"
 export LC_ALL="$LANGUAGE"
 export LC_CTYPE="$LANGUAGE"
@@ -132,7 +132,7 @@ fi
 
 # ghq
 if [[ "$OSTYPE" == darwin* ]]; then
-  export GHQ_ROOT="${HOME}/Develop"
+  export GHQ_ROOT="${HOME}/.local"
 else
   export GHQ_ROOT="${HOME}/dev/ws"
 fi

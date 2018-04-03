@@ -15,3 +15,6 @@ alias eeval='${EMACS_PLUGIN_LAUNCHER} -e'
 alias eframe='emacsclient -a "" -c'
 
 alias ekill='emacsclient -e "(kill-emacs)"'
+
+alias q=exit
+alias ls='ls -F --color=auto'

@@ -6,14 +6,14 @@
 [commit]
   verbose = true
 [core]
-  excludesfile = ~/.git/global.gitignore
+  excludesfile = ~/.config/git/global.gitignore
 [diff]
   compactionHeuristic = true
   indentHeuristic = on
 [fetch]
   prune = true
 [github]
-  user = "sei40kr"
+  user = "ay65535"
 [interactive]
   diffFilter = diff-so-fancy
 [merge]
@@ -35,5 +35,5 @@
 [url "ssh://git@github.com/"]
   insteadOf = "https://github.com/"
 [user]
-  email = "sei40kr@gmail.com"
-  name = "Seong Yong-ju"
+  email = "ay65535@icloud.com"
+  name = "ay65535"

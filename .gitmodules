@@ -34,10 +34,6 @@
 	path = config/tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm.git
 	branch = master
-[submodule "zplugin"]
-	path = config/zsh/.zplugin/bin
-	url = https://github.com/zdharma/zplugin.git
-	branch = master
 [submodule "zsh-better-run-help"]
   branch = master
 	path = config/zsh/plugins/zsh-better-run-help
