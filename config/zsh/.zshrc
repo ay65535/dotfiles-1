@@ -2,6 +2,7 @@
 
 # .zshrc
 # author: Seong Yong-ju <sei40kr@gmail.com>
+#         ay65535 <ay65535@icloud.com>
 
 local -A ZPLGM  # initial Zplugin's hash definition, then:
 ZPLGM[HOME_DIR]="${XDG_DATA_HOME}/zsh/.zplugin"

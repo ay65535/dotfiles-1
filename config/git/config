@@ -32,8 +32,8 @@
   showPatch = true
 [submodule]
   fetchJobs = 8
-[url "ssh://git@github.com/"]
-  insteadOf = "https://github.com/"
+[url "https://github.com/"]
+  insteadOf = "ssh://git@github.com/"
 [user]
   email = "ay65535@icloud.com"
   name = "ay65535"
