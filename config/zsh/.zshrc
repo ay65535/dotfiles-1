@@ -16,8 +16,9 @@ ZPLGM[ZCOMPDUMP_PATH]="${XDG_CACHE_HOME}/zsh/.zplugin/zcompdump"
 autoload -Uz _zplugin
 
 if [[ "$XDG_SESSION_DESKTOP" !=  "xmonad" && "$VSCODE_PID" == "" ]]; then
-    zstyle ':prezto:module:tmux:auto-start' local 'yes'
+    #zstyle ':prezto:module:tmux:auto-start' local 'yes'
     zstyle ':prezto:module:tmux:session' name 'default'
+    zstyle ':prezto:module:tmux:iterm' integrate 'yes'
     zplugin ice svn; zplugin snippet PZT::modules/tmux
 fi
 
@@ -30,6 +31,12 @@ fi
 . "${ZDOTDIR}/50_options.zsh"
 . "${ZDOTDIR}/80_custom.zsh"
 . "${ZDOTDIR}/zplugin.zsh"
+## source secrets
+if [ -e "$XDG_SECRET_HOME" ]; then
+    for f in $XDG_SECRET_HOME/*.sh; do
+        . "$f"
+    done
+fi
 
 compinit
 zplugin cdreplay -q
