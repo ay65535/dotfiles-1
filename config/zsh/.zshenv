@@ -84,11 +84,35 @@ if [[ -n "$BREW_PREFIX" ]]; then
     path=( "${HOME}/.cabal/bin" $path )
   fi
 
+  # go
+  if [[ -x "${BREW_PREFIX}/bin/go" ]]; then
+    export GOPATH="${HOME}/.local"
+    path=( "${GOPATH}/bin" $path )
+  fi
+
   # goenv
   if [[ -x "${BREW_PREFIX}/opt/goenv/bin/goenv" ]]; then
-    export GOENV_ROOT="${BREW_PREFIX}/opt/goenv"
-    export GOPATH="${HOME}/.go"
+    #export GOENV_ROOT="${BREW_PREFIX}/opt/goenv"
+    export GOENV_ROOT="${XDG_DATA_HOME}/goenv"
+    export GOPATH="${HOME}/.local"
     path=( "${GOENV_ROOT}/bin" "${GOENV_ROOT}/shims" "${GOPATH}/bin" $path )
+    export GOENV_SHELL=zsh
+    #source '/usr/local/Cellar/goenv/1.12.0/libexec/../completions/goenv.zsh'
+    command goenv rehash 2>/dev/null
+    goenv() {
+      local command
+      command="$1"
+      if [ "$#" -gt 0 ]; then
+        shift
+      fi
+
+      case "$command" in
+      rehash|shell)
+        eval "$(goenv "sh-$command" "$@")";;
+      *)
+        command goenv "$command" "$@";;
+      esac
+    }
   fi
 
   # nvm
