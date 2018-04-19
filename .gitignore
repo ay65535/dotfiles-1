@@ -1,3 +1,7 @@
+*.zwc
+.zcompdump
+.zcompcache/
+
 /.vim/bundle/**/*
 /.zshenv.secret
 
