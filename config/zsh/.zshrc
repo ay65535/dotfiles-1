@@ -51,6 +51,8 @@ if [[ "$VIM" == "" && "$EMACS" == "" && "$VSCODE_PID" == "" ]]; then
   zplugin ice svn; zplugin snippet PZT::modules/tmux
 fi
 
+zplugin snippet "${ZDOTDIR}/rc/30_aliases.zsh"
+
 # Setup Oh My Zsh
 ZSH="${ZDOTDIR}"
 ZSH_CUSTOM="${ZSH}/custom"
