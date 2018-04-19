@@ -1,3 +1,9 @@
+[alias]
+  st = status
+  co = checkout
+  ci = commit
+  di = diff
+  graph = log --graph --date-order --all --pretty=format:'%h %Cred%d %Cgreen%ad %Cblue%cn %Creset%s' --date=short
 [branch]
   autosetuprebase = always
 [color]
@@ -12,8 +18,8 @@
   indentHeuristic = on
 [fetch]
   prune = true
-[github]
-  user = "sei40kr"
+[ghq]
+   root = ~/local/src
 [include]
   path = ~/.git/diff-colors.gitconfig
 [interactive]
@@ -34,9 +40,6 @@
   showPatch = true
 [submodule]
   fetchJobs = 8
-[url "ssh://git@github.com/"]
-  insteadOf = "https://github.com/"
-[user]
-  email = "sei40kr@gmail.com"
-  name = "Seong Yong-ju"
+[url "https://"]
+  insteadOf = git://
 # vi: et sw=2 cc=80
