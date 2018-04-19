@@ -21,7 +21,7 @@
 [ghq]
    root = ~/local/src
 [include]
-  path = ~/.git/diff-colors.gitconfig
+  path = ~/.config/git/diff-colors.gitconfig
 [interactive]
   diffFilter = diff-so-fancy
 [merge]
