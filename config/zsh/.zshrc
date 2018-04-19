@@ -5,6 +5,13 @@
 
 . "${ZDOTDIR}/rc/exports.rc.zsh"
 
+# source secrets
+if [ -d "${HOME}/.secret" ]; then
+    for f in ${HOME}/.secret/*.sh; do
+        . "$f"
+    done
+fi
+
 zmodload zsh/zpty
 
 if [[ -s "${HOME}/.sdkman/bin/sdkman-init.sh" ]]; then
