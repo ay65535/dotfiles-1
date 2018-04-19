@@ -89,7 +89,7 @@
 1. Generate new SSH key (ECDSA 256-bit)
 
     ```sh
-    ssh-keygen -t ecdsa -b 256 -C "sei40kr@gmail.com"
+    ssh-keygen -t ecdsa -b 256 -C "yourname@yourdomain.com"
     ```
 
 1. Copy the key
@@ -108,7 +108,7 @@
 1. Clone this repository via SSH
 
     ```sh
-    git clone git@github.com:sei40kr/dotfiles.git ~/dotfiles
+    git clone https://github.com/ay65535/dotfiles-sei40kr.git ~/.dotfiles
     ```
 
 ### Set up terminal emulator
@@ -129,15 +129,15 @@
 1. Install terminal profiles
 
     ```sh
-    tic ~/dotfiles/terminfo/screen-256color-italic.terminfo
-    tic ~/dotfiles/terminfo/xterm-256color-italic.terminfo
+    tic ~/.dotfiles/terminfo/screen-256color-italic.terminfo
+    tic ~/.dotfiles/terminfo/xterm-256color-italic.terminfo
     ```
 
 1. Create symlink (if you're going to use Alacritty)
 
   ```sh
   mkdir -p ~/.config/alacritty
-  ln -sf ~/dotfiles/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
+  ln -sf ~/.dotfiles/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
   ```
 
 ### Install ZSH
@@ -172,9 +172,9 @@
 1. Create symlinks
 
     ```sh
-    ln -sf ~/dotfiles/_zsh ~/.zsh
-    ln -sf ~/dotfiles/.zshenv ~/.zshenv
-    ln -sf ~/dotfiles/.zshrc ~/.zshrc
+    ln -sf ~/.dotfiles/_zsh ~/.zsh
+    ln -sf ~/.dotfiles/.zshenv ~/.zshenv
+    ln -sf ~/.dotfiles/.zshrc ~/.zshrc
     ```
 
 ### Install TMUX
@@ -196,7 +196,7 @@
 1. Create symlink
 
     ```sh
-    ln -sf ~/dotfiles/_tmux.conf ~/.tmux.conf
+    ln -sf ~/.dotfiles/_tmux.conf ~/.tmux.conf
     ```
 
 ### Install Git
@@ -210,8 +210,8 @@
 1. Create symlink
 
     ```sh
-    ln -sf ~/dotfiles/_git ~/.git
-    ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
+    ln -sf ~/.dotfiles/_git ~/.git
+    ln -sf ~/.dotfiles/.gitconfig ~/.gitconfig
     ```
 
 ### Install tig
@@ -225,8 +225,8 @@
 1. Create symlinks
 
     ```sh
-    ln -sf ~/dotfiles/_tig ~/.tig
-    ln -sf ~/dotfiles/.tigrc ~/.tigrc
+    ln -sf ~/.dotfiles/_tig ~/.tig
+    ln -sf ~/.dotfiles/.tigrc ~/.tigrc
     ```
 
 ### Install version managers
@@ -319,7 +319,7 @@
 1. Create symlink
 
     ```sh
-    ln -sf ~/dotfiles/.gemrc ~/.gemrc
+    ln -sf ~/.dotfiles/.gemrc ~/.gemrc
     ```
 
 ### Set up Node.js
@@ -354,7 +354,7 @@
 1. Create symlink
 
     ```sh
-    ln -sf ~/dotfiles/.globalrc ~/.globalrc
+    ln -sf ~/.dotfiles/.globalrc ~/.globalrc
     ```
 
 ### Install Vim and Neovim
@@ -386,7 +386,7 @@
 1. Create symlink
 
     ```sh
-    ln -sf ~/dotfiles/_SpaceVim.d ~/.SpaceVim.d
+    ln -sf ~/.dotfiles/_SpaceVim.d ~/.SpaceVim.d
     ```
 
 ### Install Emacs
@@ -412,7 +412,7 @@
 1. Create symlink
 
     ```sh
-    ln -sf ~/dotfiles/_spacemacs.d ~/.spacemacs.d
+    ln -sf ~/.dotfiles/_spacemacs.d ~/.spacemacs.d
     ```
 
 ### Install other command-line tools
@@ -420,7 +420,7 @@
 1. Install other command-line tools via brew command
 
     ```sh
-    brew bundle --file=~/dotfiles/Brewfile
+    brew bundle --file=~/.dotfiles/Brewfile
     ```
 
 1. Install gotcha
@@ -432,14 +432,14 @@
 1. Install command-line tools via gotcha
 
     ```sh
-    gotcha ~/dotfiles/config.toml
+    gotcha ~/.dotfiles/config.toml
     ```
 
 1. Install Python dependencies
 
     ```sh
-    pip2 install -r ~/dotfiles/requirements.txt
-    pip3 install -r ~/dotfiles/requirements3.txt
+    pip2 install -r ~/.dotfiles/requirements.txt
+    pip3 install -r ~/.dotfiles/requirements3.txt
     pyenv rehash
     ```
 
@@ -453,7 +453,7 @@
 1. Install Rubygems of command-line tools via Bundler
 
     ```sh
-    bundler install --gemfile=~/dotfiles/Gemfile
+    bundler install --gemfile=~/.dotfiles/Gemfile
     rbenv rehash
     ```
 
@@ -490,15 +490,15 @@
 1. Create symlinks
 
     ```sh
-    ln -sf ~/dotfiles/_jira.d ~/.jira.d
-    ln -sf ~/dotfiles/.prettierrc.js ~/.prettierrc.js
-    ln -sf ~/dotfiles/.prettierignore ~/.prettierignore
+    ln -sf ~/.dotfiles/_jira.d ~/.jira.d
+    ln -sf ~/.dotfiles/.prettierrc.js ~/.prettierrc.js
+    ln -sf ~/.dotfiles/.prettierignore ~/.prettierignore
     ```
 
 1. Copy `.importjs.js` (creating symlink doesn't work)
 
     ```sh
-    cp -f ~/dotfiles/.importjs.js ~/.importjs.js
+    cp -f ~/.dotfiles/.importjs.js ~/.importjs.js
     ```
 
 ### Install GUI applications
