@@ -3,7 +3,7 @@
 # .zshrc
 # author: Seong Yong-ju ( @sei40kr )
 
-. "${HOME}/.zsh/rc/exports.rc.zsh"
+. "${ZDOTDIR}/rc/exports.rc.zsh"
 
 zmodload zsh/zpty
 
@@ -17,12 +17,20 @@ autoload -Uz add-zsh-hook \
     compinit \
     _zplugin
 
+local -A ZPLGM  # initial Zplugin's hash definition
+ZPLGM[HOME_DIR]="${XDG_DATA_HOME}/zsh/.zplugin"
+ZPLGM[BIN_DIR]="${ZPLGM[HOME_DIR]}/bin"
+ZPLGM[PLUGINS_DIR]="${ZPLGM[HOME_DIR]}/plugins"
+ZPLGM[SNIPPETS_DIR]="${ZPLGM[HOME_DIR]}/snippets"
+ZPLGM[COMPLETIONS_DIR]="${ZPLGM[HOME_DIR]}/completions"
+ZPLGM[ZCOMPDUMP_PATH]="${XDG_CACHE_HOME}/zsh/.zcompdump"
+
 # Install zplugin if not installed
-[[ -d "${HOME}/.zplugin" ]] || \
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
+[[ -d "${ZPLGM[HOME_DIR]}" ]] || \
+    git clone https://github.com/zdharma/zplugin.git ${ZPLGM[HOME_DIR]}/bin
 
 # Load zplugin
-. "${HOME}/.zplugin/bin/zplugin.zsh"
+. "${ZPLGM[BIN_DIR]}/zplugin.zsh"
 
 if [[ "${+_comps}" == 1 ]]; then
   _comps[zplugin]=_zplugin
@@ -31,15 +39,15 @@ fi
 ## Environments
 # Launch tmux if not running
 if [[ "$VIM" == "" && "$EMACS" == "" && "$VSCODE_PID" == "" ]]; then
-  zstyle ':prezto:module:tmux:auto-start' local 'yes'
+  #zstyle ':prezto:module:tmux:auto-start' local 'yes'
   zstyle ':prezto:module:tmux:session' name 'default'
   zplugin ice svn; zplugin snippet PZT::modules/tmux
 fi
 
 # Setup Oh My Zsh
-ZSH="${HOME}/.zsh"
+ZSH="${ZDOTDIR}"
 ZSH_CUSTOM="${ZSH}/custom"
-ZSH_CACHE_DIR="${HOME}/.cache/zsh"
+ZSH_CACHE_DIR="${XDG_CACHE_HOME}/zsh"
 typeset -U fpath
 fpath=( "${ZSH}/completions" "${ZSH}/functions" "${fpath[@]}" )
 [[ -d "$ZSH_CACHE_DIR" ]] || mkdir -p "$ZSH_CACHE_DIR"
@@ -51,6 +59,9 @@ zplugin snippet PZT::modules/environment/init.zsh
 
 zplugin snippet PZT::modules/directory/init.zsh
 zplugin snippet PZT::modules/history/init.zsh
+export HISTFILE="${XDG_DATA_HOME}/zsh/history"
+export HISTSIZE=100000
+export SAVEHIST=200000
 zplugin snippet PZT::modules/gnu-utility/init.zsh
 
 ## Completions and aliases
@@ -197,17 +208,17 @@ zplugin cdreplay -q
 # Define aliases
 alias u='cd ..'
 
-setopt APPEND_HISTORY
+#setopt APPEND_HISTORY  # dup: PZT::modules/history
 setopt AUTO_PARAM_KEYS
-setopt AUTO_RESUME
+#setopt AUTO_RESUME  # dup: PZT::modules/environment
 setopt EQUALS
-setopt EXTENDED_HISTORY
+#setopt EXTENDED_HISTORY  # dup: PZT::modules/history
 setopt GLOB_DOTS
 setopt HIST_REDUCE_BLANKS
-setopt INTERACTIVE_COMMENTS
+#setopt INTERACTIVE_COMMENTS  # dup: PZT::modules/environment, zdharma/fast-syntax-highlighting
 setopt NO_BEEP
 setopt NUMERIC_GLOB_SORT
 setopt PRINT_EIGHT_BIT
 setopt PROMPT_SUBST
-setopt SHARE_HISTORY
+#setopt SHARE_HISTORY  # dup: PZT::modules/history
 unsetopt LIST_BEEP

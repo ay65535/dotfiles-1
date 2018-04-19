@@ -11,19 +11,15 @@ typeset -U infopath
 # Homebrew/Linuxbrew
 # ------------------
 
-if [[ -d "/home/linuxbrew/.linuxbrew" ]]
-then
+if [[ -d "/home/linuxbrew/.linuxbrew" ]]; then
   BREW_PREFIX="/home/linuxbrew/.linuxbrew"
-elif [[ -d "${HOME}/.linuxbrew" ]]
-then
+elif [[ -d "${HOME}/.linuxbrew" ]]; then
   BREW_PREFIX="${HOME}/.linuxbrew"
-elif [[ -x '/usr/local/bin/brew' ]]
-then
+elif [[ -x '/usr/local/bin/brew' ]]; then
   BREW_PREFIX='/usr/local'
 fi
 
-if [[ -n "$BREW_PREFIX" ]]
-then
+if [[ -n "$BREW_PREFIX" ]]; then
   path=(
     "${BREW_PREFIX}/bin"
     "${BREW_PREFIX}/sbin"
@@ -42,8 +38,7 @@ then
 fi
 
 # If LLVM was installed via Homebrew
-if [[ -d "${BREW_PREFIX}/opt/llvm" ]]
-then
+if [[ -d "${BREW_PREFIX}/opt/llvm" ]]; then
   path=(
     "${BREW_PREFIX}/opt/llvm/bin"
     "${path[@]}"
@@ -55,42 +50,29 @@ fi
 # Golang
 # ------
 
-if [[ -d "${HOME}/.go" ]]
-then
-  GOPATH="${HOME}/.go"
+if [[ -d "${HOME}/local" ]]; then
+  GOPATH="${HOME}/local"
   path=( "${GOPATH}/bin" "${path[@]}" )
 fi
 
 path=(
-  "${HOME}/.local/bin"(N-/)
+  "${HOME}/local/bin"(N-/)
   "${HOME}/.cabal/bin"(N-/)
   "${HOME}/.cargo/bin"(N-/)
   "${path[@]}"
 )
 
 
-# ghq
-# ---
-if [[ "$OSTYPE" == darwin* ]]; then
-  GHQ_ROOT="${HOME}/Develop"
-else
-  GHQ_ROOT="${HOME}/dev/ws"
-fi
-
-
 # Misc
 # ----
 
-if [[ -d "${HOME}/.zsh" ]]
-then
+if [[ -d "${HOME}/.zsh" ]]; then
   fpath=(
     "${HOME}/.zsh/completions"
     "${HOME}/.zsh/functions"
     "${fpath[@]}"
   )
 fi
-
-XDG_CONFIG_HOME="${HOME}/.config"
 
 export PATH
 export FPATH
@@ -99,7 +81,6 @@ export INFOPATH
 export GOPATH
 export BREW_PREFIX
 export LD_LIBRARY_PATH
-export XDG_CONFIG_HOME
 export XDG_DATA_DIRS
 export GHQ_ROOT
 
