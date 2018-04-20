@@ -1,0 +1,15 @@
+BoldAsFont=yes
+Font=Ricty Diminished
+Locale=ja_JP
+Charset=UTF-8
+FontHeight=11
+Columns=240
+Rows=48
+CursorType=block
+Transparency=medium
+Scrollbar=none
+Language=ja
+Term=xterm-color
+BackspaceSendsBS=no
+CursorBlinks=yes
+ThemeFile=nord
