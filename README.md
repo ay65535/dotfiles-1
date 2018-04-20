@@ -177,6 +177,11 @@
     ln -sf ~/.dotfiles/.zshrc ~/.zshrc
     ```
 
+    ```dos
+    mklink .zshenv dotfiles-sei40kr\zshenv
+    mklink .config dotfiles-sei40kr\config
+    ```
+
 ### Install TMUX
 
 1. Install TMUX via brew command
